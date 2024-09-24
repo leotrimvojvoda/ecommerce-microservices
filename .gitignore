@@ -25,3 +25,5 @@ product-service/.idea/**
 /product-service/**
 /**/src/main/**/target/
 /**/src/test/**/target/
+
+*/target/*
