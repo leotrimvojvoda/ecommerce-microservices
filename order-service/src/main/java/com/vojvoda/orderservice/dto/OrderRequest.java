@@ -1,4 +1,4 @@
-package com.vojvoda.orderservice.service;
+package com.vojvoda.orderservice.dto;
 
 import java.math.BigDecimal;
 

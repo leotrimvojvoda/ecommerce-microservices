@@ -1,0 +1,39 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.3.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    driver: bridge
+
+#Use same database
+
+# Put this in other services
+# version: '3'
+# services:
+#   order-service:
+#     build: .
+#     environment:
+#       DATABASE_HOST: mysql
+#       DATABASE_PORT: 3306
+#       DATABASE_USER: root
+#       DATABASE_PASSWORD: root
+#     depends_on:
+#       - mysql
+#     networks:
+#       - shared-network
+
+# networks:
+#   shared-network:
+#     external: true
