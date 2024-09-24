@@ -3,11 +3,6 @@ inventory-service/.idea/**
 order-service/.idea/**
 product-service/.idea/**
 
-# Maven-related files to ignore
-/order-service/target/**
-/product-service/target/**
-/inventory-service/target/**
-
 # Ignore Maven wrapper files
 /inventory-service/mvnw
 /order-service/mvnw
@@ -17,13 +12,8 @@ product-service/.idea/**
 /product-service/mvnw.cmd
 
 /**/.idea
-/.idea/**
 
 /**/mysql/**
 /**/mongo-data/**
 /**/target/**
-/product-service/**
-/**/src/main/**/target/
-/**/src/test/**/target/
-
-*/target/*
+/**/.mvn/**
