@@ -5,3 +5,9 @@
 /order-service/mvnw.cmd
 /product-service/mvnw.cmd
 /.idea/vcs.xml
+.idea/checkstyle-idea.xml
+.idea/ecommerce-microservices.iml
+.idea/encodings.xml
+.idea/jarRepositories.xml
+.idea/misc.xml
+.idea/modules.xml
