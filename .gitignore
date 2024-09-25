@@ -4,15 +4,9 @@ order-service/.idea/**
 product-service/.idea/**
 
 # Ignore Maven wrapper files
-/inventory-service/mvnw
-/order-service/mvnw
-/product-service/mvnw
-/inventory-service/mvnw.cmd
-/order-service/mvnw.cmd
-/product-service/mvnw.cmd
-
+/**/mvnw
+/**/mvnw.cmd
 /**/.idea
-
 /**/mysql/**
 /**/mongo-data/**
 /**/target/**
