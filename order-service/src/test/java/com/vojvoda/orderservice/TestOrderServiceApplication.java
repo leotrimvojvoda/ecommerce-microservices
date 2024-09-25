@@ -1,16 +1,18 @@
 package com.vojvoda.orderservice;
 
+import com.vojvoda.orderservice.stubs.InventoryClientStub;
 import io.restassured.RestAssured;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 
-@Import(TestcontainersConfiguration.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureWireMock(port = 0)
 class TestOrderServiceApplication {
 
     @LocalServerPort
@@ -27,12 +29,14 @@ class TestOrderServiceApplication {
         String requestBody = """
                 {
                   "id": 1,
-                  "orderNumber": "ORD123456",
-                  "skuCode": "SKU123",
+                  "orderNumber": "iphone_15",
+                  "skuCode": "iphone_15",
                   "price": 49.99,
                   "quantity": 2
                 }
                 """;
+
+        InventoryClientStub.stubInventoryCall("iphone_15", 3);
 
         RestAssured.given()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
