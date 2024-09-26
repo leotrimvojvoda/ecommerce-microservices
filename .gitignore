@@ -11,3 +11,4 @@ product-service/.idea/**
 /**/mongo-data/**
 /**/target/**
 /**/.mvn/**
+/**/volume-data/**
