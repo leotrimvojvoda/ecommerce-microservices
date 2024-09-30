@@ -1,4 +1,4 @@
-package com.vojvoda.orderservice.config;
+package com.vojvoda.order.orderservice.config;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;

@@ -1,4 +1,4 @@
-package com.vojvoda.orderservice.client;
+package com.vojvoda.order.orderservice.client;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.ClientHttpRequestFactories;

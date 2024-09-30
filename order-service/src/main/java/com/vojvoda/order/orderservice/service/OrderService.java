@@ -1,10 +1,12 @@
-package com.vojvoda.orderservice.service;
+package com.vojvoda.order.orderservice.service;
 
-import com.vojvoda.orderservice.client.InventoryClient;
-import com.vojvoda.orderservice.dto.OrderRequest;
-import com.vojvoda.orderservice.model.Order;
-import com.vojvoda.orderservice.repository.OrderRepository;
+import com.vojvoda.order.orderservice.client.InventoryClient;
+import com.vojvoda.order.orderservice.dto.OrderRequest;
+import com.vojvoda.order.event.OrderPlacedEvent;
+import com.vojvoda.order.orderservice.model.Order;
+import com.vojvoda.order.orderservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -15,6 +17,7 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final InventoryClient inventoryClient;
+    private final KafkaTemplate<String, OrderPlacedEvent> kafkaTemplate;
 
     public void placeOrder(OrderRequest orderRequest) {
 
@@ -27,8 +30,11 @@ public class OrderService {
             order.setPrice(orderRequest.price());
             order.setSkuCode(orderRequest.skuCode());
             order.setQuantity(orderRequest.quantity());
-
             orderRepository.save(order);
+
+            //Send message to kafka topic
+            OrderPlacedEvent orderPlacedEvent = new OrderPlacedEvent(order.getOrderNumber(), orderRequest.userDetails().email());
+            kafkaTemplate.send("order-placed", orderPlacedEvent);
         } else throw new RuntimeException("Product with SkuCode " + orderRequest.skuCode() + " is not in stock");
     }
 }

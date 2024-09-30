@@ -1,4 +1,4 @@
-package com.vojvoda.orderservice.client;
+package com.vojvoda.order.orderservice.client;
 
 import groovy.util.logging.Slf4j;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;

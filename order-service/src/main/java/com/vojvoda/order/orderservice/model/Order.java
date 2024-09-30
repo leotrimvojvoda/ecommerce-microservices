@@ -1,28 +1,28 @@
-package com.vojvoda.orderservice.model;
+package com.vojvoda.order.orderservice.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
-@Table(name = "t_order_line_items")
+@Table(name = "t_orders")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class OrderLineItems {
+@AllArgsConstructor
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String orderNumber;
     private String skuCode;
-
     private BigDecimal price;
-
     private Integer quantity;
+
 }
