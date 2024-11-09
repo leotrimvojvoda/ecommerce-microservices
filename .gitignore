@@ -2,6 +2,7 @@
 inventory-service/.idea/**
 order-service/.idea/**
 product-service/.idea/**
+api-gateway/docker/tempo/tempo-data
 
 # Ignore Maven wrapper files
 /**/mvnw
