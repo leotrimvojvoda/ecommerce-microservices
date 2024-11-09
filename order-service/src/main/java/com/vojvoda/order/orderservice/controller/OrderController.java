@@ -1,7 +1,7 @@
-package com.vojvoda.orderservice.controller;
+package com.vojvoda.order.orderservice.controller;
 
-import com.vojvoda.orderservice.dto.OrderRequest;
-import com.vojvoda.orderservice.service.OrderService;
+import com.vojvoda.order.orderservice.service.OrderService;
+import com.vojvoda.order.orderservice.dto.OrderRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
